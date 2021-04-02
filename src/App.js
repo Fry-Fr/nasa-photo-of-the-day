@@ -15,7 +15,7 @@ function App() {
   const [ apod, setApod ] = useState(undefined);
   const [ mediaType, setMediaType ] = useState(undefined)
   useEffect( () => {
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=dVwvWe7dYlZiGsaFpqKUkgGHb5kfRcvl83J8VEWK&date=2012-06-14')
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=dVwvWe7dYlZiGsaFpqKUkgGHb5kfRcvl83J8VEWK')
       .then( resp => {
         setApod(resp.data)
         setMediaType(resp.data.media_type)
@@ -27,8 +27,8 @@ function App() {
 
   return (
     <Main>
-      {apod ? <Header title={apod.title} date={apod.date}/> : "NO APOD"}
-      {apod ? <Description url={apod.url} mediaType={mediaType} expl={apod.explanation}/> : "NO APOD"}
+      {apod ? <Header title={apod.title} date={apod.date}/> : <div/>}
+      {apod ? <Description hdurl={apod.hdurl} url={apod.url} mediaType={mediaType} expl={apod.explanation}/> : <div/>}
     </Main>
   );
 }

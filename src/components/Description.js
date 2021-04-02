@@ -35,24 +35,38 @@ const VidPlyr = styled.div`
     }
 `
 const ImgWrp = styled.div`
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-flow: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    background: linear-gradient( rgba(65, 78, 79,.6), rgba(43, 55, 56) );
+    border-bottom: .5px solid rgba(0,0,0,1);
+    min-height: 90vh;
     img {
-        border: 1px solid rgba(0,5,45, 1);
+        border: .5px solid rgba(0,0,0, .85);
         border-radius: .5rem;
         box-shadow: 0 .15rem 1rem .25rem;
-        width: 98%;
+        height: 70vh;
     }
     p {
-        font-family: 'Poppins', sans-serif;
         width: 75%;
         padding: .5rem 0;
+        margin: 0 0 2rem;
     }
     h4 {
         margin: 1rem 0 0;
         text-decoration: underline;
+    }
+    @media(max-width: 1000px) {
+        p {
+            width: 75%;
+            padding: .5rem 0;
+        }
+        img {
+            width: 95%;
+            height: auto;
+        }
     }
 `
 
@@ -68,7 +82,7 @@ const Description = (props) => {
    }else if(props.mediaType === "image"){
        return (
            <ImgWrp>
-            <img src={props.url} alt="apod"/>
+            <img src={props.hdurl} alt="apod"/>
             <h4>Explanation</h4>
             <p>{props.expl}</p>
            </ImgWrp>

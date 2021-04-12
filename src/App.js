@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './components/Header'
 import Description from './components/Description'
 import styled from 'styled-components'
+import key from './APIkey'
 
 const Main = styled.div`
   min-height: 100vh;
@@ -15,7 +16,7 @@ function App() {
   const [ apod, setApod ] = useState(undefined);
   const [ mediaType, setMediaType ] = useState(undefined)
   useEffect( () => {
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=dVwvWe7dYlZiGsaFpqKUkgGHb5kfRcvl83J8VEWK')
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${key}`)
       .then( resp => {
         setApod(resp.data)
         setMediaType(resp.data.media_type)

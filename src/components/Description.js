@@ -37,9 +37,9 @@ const VidPlyr = styled.div`
 const ImgWrp = styled.div`
     font-family: 'Poppins', sans-serif;
     display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-start;
     background: linear-gradient( rgba(65, 78, 79,.6), rgba(43, 55, 56) );
     border-bottom: .5px solid rgba(0,0,0,1);
     min-height: 90vh;
@@ -47,21 +47,37 @@ const ImgWrp = styled.div`
         border: .5px solid rgba(0,0,0, .85);
         border-radius: .5rem;
         box-shadow: 0 .15rem 1rem .25rem;
-        height: 70vh;
+        margin: .5rem auto auto 1rem;
+        width: 45%;
+    }
+    section {
+        display: flex;
+        flex-flow: column;
+        width: 50%;
+
     }
     p {
-        width: 75%;
+        width: 85%;
         padding: .5rem 0;
-        margin: 0 0 2rem;
     }
     h4 {
         margin: 1rem 0 0;
         text-decoration: underline;
     }
-    @media(max-width: 1000px) {
+    @media(max-width: 700px) {
+        flex-flow: column;
+        align-items: center;
+        section {
+            width: 100%;
+        }
+        h4 {
+            text-align: center;
+        }
         p {
-            width: 75%;
+            text-align: left;
+            width: 95%;
             padding: .5rem 0;
+            margin-left: .5rem;
         }
         img {
             width: 95%;
@@ -83,8 +99,10 @@ const Description = (props) => {
        return (
            <ImgWrp>
             <img src={props.hdurl} alt="apod"/>
-            <h4>Explanation</h4>
-            <p>{props.expl}</p>
+            <section>
+                <h4>Explanation</h4>
+                <p>{props.expl}</p>
+            </section>
            </ImgWrp>
        )
    }else {

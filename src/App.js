@@ -3,7 +3,7 @@ import axios from 'axios';
 import Header from './components/Header'
 import Description from './components/Description'
 import styled from 'styled-components'
-import key from './APIkey'
+import key from './APIKey'
 
 const Main = styled.div`
   min-height: 100vh;

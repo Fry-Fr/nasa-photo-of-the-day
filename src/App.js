@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from "react";
 import axios from 'axios';
-import Header from './components/Header'
-import Description from './components/Description'
-import styled from 'styled-components'
-import key from './APIKey'
+import Header from './components/Header';
+import Description from './components/Description';
+import styled from 'styled-components';
+import key from './apiKey'
 
 const Main = styled.div`
   min-height: 100vh;
